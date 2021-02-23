@@ -1,0 +1,17 @@
+<div class="col mt-1">
+    <div class="row-md-12 mb-1" *ngFor="let user of users">
+      <div class="card text-center float-left" style="min-width: 300px;max-width: 34%;margin:0 10px 10px 0;">
+        <div class="card-body" >
+          <h5 class="card-title" style="font-size: 30px;">{{user.Firstname}} {{user.Lastname}}</h5>
+          <p class="card-text">{{user.email}}</p>
+          <p class="card-text">{{user.mobileNumber}}</p>
+          <p class="card-text">{{user.birthDate.split('T')[0]}}</p>
+          <!-- <a href="#" class="btn btn-primary">Buy Tickets</a> -->
+        </div>
+        <!-- <div class="card-footer text-muted"> -->
+            <!-- <p>hi</p> -->
+          <!-- {{event.date | date:'shortDate'}} -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>

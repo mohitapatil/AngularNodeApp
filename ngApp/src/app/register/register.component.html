@@ -1,0 +1,134 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Register</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" #userForm="ngForm" >
+
+              <div class="form-group">
+                <label for="Firstname">First Name</label>
+                <input ngModel type="text" 
+                [(ngModel)]="registerUserData.Firstname" 
+                name="Firstname" #Firstname="ngModel" 
+                (change)="log(Firstname)" class="form-control rounded-0" required>
+                <div class="alert alert-danger" 
+                *ngIf="Firstname.touched && !Firstname.valid">
+                  <div *ngIf="Firstname.errors.required">First Name is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Lastname">Last Name</label>
+                <input ngModel type="text" [(ngModel)]="registerUserData.Lastname" name="Lastname" class="form-control rounded-0" required>
+              </div>
+
+              <div class="form-group">
+                <label for="birthDate">Birth Date</label>
+                <input ngModel type="date" [(ngModel)]="registerUserData.birthDate" name="Date" 
+                #birthDate="ngModel" class="form-control rounded-0" required>
+                <div class="alert alert-danger" 
+                *ngIf="birthDate.touched && !birthDate.valid">
+                  <div *ngIf="birthDate.errors.required">Birth Date is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label >State</label>
+                <input ngModel type="text" 
+                [(ngModel)]="registerUserData.State" 
+                name="State" #State="ngModel" 
+                class="form-control rounded-0" required>
+                <div class="alert alert-danger" 
+                *ngIf="State.touched && !State.valid">
+                  <div *ngIf="State.errors.required">State Name is required</div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>City</label>
+                <input ngModel type="text" 
+                [(ngModel)]="registerUserData.City" 
+                name="City" #City="ngModel" 
+                class="form-control rounded-0" required>
+                <div class="alert alert-danger" 
+                *ngIf="City.touched && !City.valid">
+                  <div *ngIf="City.errors.required">City Name is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Pincode</label>
+                <input type="number"  
+                [(ngModel)]="registerUserData.pincode" name="Pincode" class="form-control rounded-0" pattern="([0-9]{6})" #Pincode="ngModel" required>
+                <div class="alert alert-danger" 
+                *ngIf="Pincode.errors && (Pincode.touched && Pincode.dirty)">
+                  <ng-container *ngIf="!!Pincode.errors.required ; else maxle">
+                    Pincode required
+                  </ng-container>
+                    <ng-template #maxle >
+                      Pincode must have +'ve 6 digits
+                  </ng-template>
+                </div>              
+              </div>
+
+              <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="number"  
+                [(ngModel)]="registerUserData.mobileNumber" name="MobileNum" class="form-control rounded-0" pattern="([0-9]{10})" #MobileNum="ngModel" required>
+                <div class="alert alert-danger" 
+                *ngIf="MobileNum.errors && (MobileNum.touched && MobileNum.dirty)">
+                  <ng-container *ngIf="!!MobileNum.errors.required ; else maxlenth">
+                    Mobile Number required
+                  </ng-container>
+                    <ng-template #maxlenth >
+                      Mobile Number must have +'ve 10 digits
+                  </ng-template>
+                  <!-- <div *ngIf="!MobileNum.errors.pattern">  
+                    Mobile number not valid.  
+                  </div>  -->
+                </div>              
+              </div>
+
+              <div class="form-group">
+                <label >Email</label>
+                <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" email #email="ngModel" required>
+                <div class="alert alert-danger" 
+                *ngIf="email.touched && !email.valid">
+                  <div *ngIf="email.errors?.email">
+                    Email not valid
+                  </div>
+                  <div *ngIf="email.errors.required">Email is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input ngModel minlength="7" type="password" 
+                [(ngModel)]="registerUserData.password" name="password" 
+                #password="ngModel" (change)="log(password)" class="form-control rounded-0"  required>
+                <div class="alert alert-danger" *ngIf="password.touched && !password.valid ">
+                  <div *ngIf="password.errors.minlength">min length is 7</div>
+                  <div *ngIf="password.errors.required">password is required</div>
+                </div>
+              </div>
+
+                <button for="register" type="button" (click)="registerUser()" 
+                class="btn btn-primary float-right">Register</button>
+
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+  
+      </div>
+  
+  
+    </div>
+  </div>
