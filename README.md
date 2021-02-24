@@ -36,6 +36,8 @@ To run the web server return to the root of the repository and type:
 npm run dev
 ```
 
+application is now running on localhost:4200
+
 ## Server
 
 The server is made on `nodejs` (v12.4.0)
